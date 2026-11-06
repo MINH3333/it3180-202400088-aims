@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TaskFlow - Ứng dụng quản lý công việc cá nhân đơn giản.">
+  <title>TaskFlow | Quản lý công việc</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <script src="/static/js/app.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="hero">
+      <div class="brand-mark" aria-hidden="true">✓</div>
+      <div>
+        <p class="eyebrow">PERSONAL PRODUCTIVITY</p>
+        <h1>TaskFlow</h1>
+        <p class="subtitle">Sắp xếp công việc, hoàn thành mục tiêu mỗi ngày.</p>
+      </div>
+    </header>
+
+    <section class="panel composer" aria-labelledby="form-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">BẮT ĐẦU NGAY</p>
+          <h2 id="form-title">Thêm công việc</h2>
+        </div>
+      </div>
+      <form id="task-form">
+        <label for="task-title">Tên công việc <span aria-hidden="true">*</span></label>
+        <input id="task-title" name="title" maxlength="120" placeholder="Ví dụ: Hoàn thành bài tập lớn" required>
+        <label for="task-description">Mô tả</label>
+        <textarea id="task-description" name="description" rows="3" maxlength="1000" placeholder="Ghi chú thêm (không bắt buộc)"></textarea>
+        <div class="form-footer">
+          <p id="form-message" class="message" role="status" aria-live="polite"></p>
+          <button class="button button-primary" type="submit">+ Thêm công việc</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="task-section" aria-labelledby="list-title">
+      <div class="list-heading">
+        <div>
+          <p class="eyebrow">YOUR WORKSPACE</p>
+          <h2 id="list-title">Danh sách công việc</h2>
+        </div>
+        <div class="filters" role="group" aria-label="Lọc công việc">
+          <button class="filter active" data-filter="all" type="button">Tất cả</button>
+          <button class="filter" data-filter="pending" type="button">Đang làm</button>
+          <button class="filter" data-filter="completed" type="button">Hoàn thành</button>
+        </div>
+      </div>
+      <div class="stats" aria-live="polite">
+        <span id="total-count">0 công việc</span>
+        <span id="completed-count">0 hoàn thành</span>
+      </div>
+      <p id="loading-message" class="loading">Đang tải công việc...</p>
+      <ul id="task-list" class="task-list"></ul>
+      <div id="empty-state" class="empty-state" hidden>
+        <div class="empty-icon" aria-hidden="true">✦</div>
+        <h3>Chưa có công việc nào</h3>
+        <p>Thêm công việc đầu tiên để bắt đầu kế hoạch của bạn.</p>
+      </div>
+      <p id="error-message" class="error-message" role="alert"></p>
+    </section>
+
+    <footer class="footer">TaskFlow · Built for learning Software Engineering</footer>
+  </main>
+</body>
+</html>
